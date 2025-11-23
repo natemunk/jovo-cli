@@ -1,0 +1,9 @@
+{
+  "packages": ["cli", "core", "commands/*", "integrations/*"],
+  "version": "independent",
+  "command": {
+    "publish": {
+      "message": ":bookmark: Publish"
+    }
+  }
+}
