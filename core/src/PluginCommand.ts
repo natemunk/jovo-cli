@@ -55,7 +55,8 @@ export abstract class PluginCommand<T extends Events = DefaultEvents> extends Mi
   /**
    * Overwrite parse()
    */
-  parse<FLAGS>(
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  parse<FLAGS extends Parser.OutputFlags<any>>(
     command: Parser.Input<FLAGS> = this.constructor as unknown as Parser.Input<FLAGS>,
     argv?: string[],
     // eslint-disable-next-line @typescript-eslint/no-explicit-any

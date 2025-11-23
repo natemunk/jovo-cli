@@ -151,7 +151,6 @@ You can also add your own commands. Learn more in the [extend the Jovo CLI](#ext
 Currently, these integrations are available for the Jovo CLI:
 
 - [Amazon Alexa](https://www.jovo.tech/marketplace/platform-alexa/project-config): Build and deploy project files to the Alexa Developer Console
-- [Google Assistant](https://www.jovo.tech/marketplace/platform-googleassistant/project-config): Build and deploy project files to the Actions on Google Console
 - [Serverless](https://www.jovo.tech/marketplace/target-lex): Deploy your Jovo code using the Serverless Framework
 
 ## Extend the Jovo CLI

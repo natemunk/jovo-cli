@@ -109,7 +109,7 @@ export class ProjectConfig {
     } catch (error) {
       throw new JovoCliError({
         message: 'Could not load project configuration.',
-        details: error.message,
+        details: (error as Error).message,
       });
     }
   }

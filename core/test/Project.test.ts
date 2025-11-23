@@ -187,9 +187,8 @@ describe('getModel()', () => {
     fs.writeFileSync(joinPaths(testPath, 'en.json'), '{');
 
     const project: Project = new Project('');
-    return expect(project.getModel('en')).rejects.toEqual(
-      new JovoCliError({ message: 'Unexpected end of JSON input' }),
-    );
+    // Error message varies by Node.js version
+    return expect(project.getModel('en')).rejects.toThrow(JovoCliError);
   });
 
   test('should return model', async () => {

@@ -1,29 +1,33 @@
 {
   "name": "root",
   "private": true,
+  "workspaces": [
+    "cli",
+    "core",
+    "commands/*",
+    "integrations/*"
+  ],
   "scripts": {
-    "setup:dev": "npm i && npm run bootstrap && npm run link && npm run build",
-    "bootstrap": "lerna bootstrap --hoist --ignore-scripts",
-    "build": "lerna exec npm run build",
-    "clean": "lerna clean",
-    "prettier": "lerna exec npm run prettier",
+    "setup:dev": "npm i && npm run link && npm run build",
+    "build": "lerna run build",
+    "clean": "lerna run clean",
+    "prettier": "lerna run prettier",
     "link": "lerna run link",
-    "eslint": "lerna exec npm run eslint",
-    "test": "lerna exec npm run test -- -- --passWithNoTests",
-    "preparePublish": "npm install && npm run bootstrap && npm run build && npm run prettier && npm run eslint && npm run test",
+    "eslint": "lerna run eslint",
+    "test": "lerna run test -- --passWithNoTests",
+    "preparePublish": "npm install && npm run build && npm run prettier && npm run eslint && npm run test",
     "updateVersions:minor": "lerna version minor --yes --no-push --no-git-tag-version",
     "updateVersions:patch": "lerna version patch --yes --no-push --no-git-tag-version",
     "publishPackages": "lerna publish from-package --yes --no-verify-access",
     "doPublish": "npm run updateVersions && npm run publishPackages"
   },
   "devDependencies": {
-    "@lerna/project": "^4.0.0",
-    "@typescript-eslint/eslint-plugin": "^4.12.0",
-    "@typescript-eslint/parser": "^4.12.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
     "auto-changelog": "^2.3.0",
-    "eslint": "^7.17.0",
-    "eslint-config-prettier": "^7.1.0",
-    "eslint-plugin-prettier": "^3.3.1",
-    "lerna": "^4.0.0"
+    "eslint": "^8.50.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "lerna": "8.1.2"
   }
 }

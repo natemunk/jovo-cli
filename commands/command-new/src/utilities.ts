@@ -86,28 +86,6 @@ export function fetchMarketPlace(): MarketplacePlugin[] {
       tags: 'platforms',
     },
     {
-      name: 'Google Assistant',
-      module: 'GoogleAssistantPlatform',
-      cliModule: 'GoogleAssistantCli',
-      package: '@jovotech/platform-googleassistant',
-      description: 'Build apps for Google Assistant',
-      tags: 'platforms',
-    },
-    {
-      name: 'Facebook Messenger',
-      module: 'FacebookMessengerPlatform',
-      package: '@jovotech/platform-facebookmessenger',
-      description: 'Build apps for Facebook Messenger',
-      tags: 'platforms',
-    },
-    {
-      name: 'Google Business Messages',
-      module: 'GoogleBusinessPlatform',
-      package: '@jovotech/platform-googlebusiness',
-      description: 'Build apps for Google Business Messages',
-      tags: 'platforms',
-    },
-    {
       name: 'ExpressJs',
       module: 'express',
       package: '@jovotech/server-express',

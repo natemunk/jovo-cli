@@ -50,7 +50,7 @@ export default class HelpOutput extends HelpBase {
       });
     } catch (error) {
       if (!isJovoCliError(error)) {
-        error = new JovoCliError({ message: error.message });
+        error = new JovoCliError({ message: (error as Error).message });
       }
 
       JovoCliError.print(error as JovoCliError);

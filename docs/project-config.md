@@ -115,7 +115,6 @@ const project = new ProjectConfig({
 Each plugin has its own set of options that you can find on the respective documentation pages, for example:
 
 - [Alexa project configuration](https://www.jovo.tech/marketplace/platform-alexa/project-config)
-- [Google Assistant project configuration](https://www.jovo.tech/marketplace/platform-googleassistant/project-config)
 
 ### File Builder
 

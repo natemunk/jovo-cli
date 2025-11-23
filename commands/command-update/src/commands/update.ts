@@ -90,7 +90,7 @@ export class Update extends PluginCommand<UpdateEvents> {
           );
           return stdout;
         } catch (error) {
-          throw new JovoCliError({ message: error.stderr });
+          throw new JovoCliError({ message: (error as { stderr: string }).stderr });
         }
       },
       { enabled: Boolean(prodPackages.length) },
@@ -103,7 +103,7 @@ export class Update extends PluginCommand<UpdateEvents> {
           const { stdout } = await execAsync(`npm i ${devPackages.join(' ')} -D`);
           return stdout;
         } catch (error) {
-          throw new JovoCliError({ message: error.stderr });
+          throw new JovoCliError({ message: (error as { stderr: string }).stderr });
         }
       },
       { enabled: Boolean(devPackages.length) },

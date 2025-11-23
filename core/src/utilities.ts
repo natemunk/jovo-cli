@@ -30,19 +30,23 @@ export function execAsync(
     if (!Array.isArray(cmd)) {
       cmd = [cmd];
     }
-    exec(cmd.join(' '), options, (error: ExecException | null, stdout: string, stderr: string) => {
-      if (error) {
-        reject({ stderr: error.message, stdout });
-      } else {
-        // Reject only if stdout is empty.
-        if (stderr && !stdout) {
-          reject({ stderr });
-        }
+    exec(
+      cmd.join(' '),
+      { ...options, encoding: 'utf-8' },
+      (error: ExecException | null, stdout: string, stderr: string) => {
+        if (error) {
+          reject({ stderr: error.message, stdout });
+        } else {
+          // Reject only if stdout is empty.
+          if (stderr && !stdout) {
+            reject({ stderr });
+          }
 
-        // Pass stderr to result for the case that some warning was passed into the error stream.
-        resolve({ stderr, stdout });
-      }
-    });
+          // Pass stderr to result for the case that some warning was passed into the error stream.
+          resolve({ stderr, stdout });
+        }
+      },
+    );
   });
 }
 
@@ -267,6 +271,6 @@ export function getLanguagePascalCase(lng: SupportedLanguages): string {
  * is not the same instance of a JovoCliError as in a global one.
  * @param error - Error to check
  */
-export function isJovoCliError(error: Error): error is JovoCliError {
+export function isJovoCliError(error: unknown): error is JovoCliError {
   return error instanceof JovoCliError || !!(error as JovoCliError)['properties'];
 }

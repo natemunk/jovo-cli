@@ -90,15 +90,16 @@ export class UserConfig {
       const data: string = readFileSync(joinPaths(homedir(), UserConfig.getPath()), 'utf-8');
       return JSON.parse(data);
     } catch (error) {
+      const err = error as NodeJS.ErrnoException;
       // If file cannot be found, create it.
-      if (error.code === 'ENOENT') {
+      if (err.code === 'ENOENT') {
         return this.create();
       }
 
       // Otherwise propagate error.
       throw new JovoCliError({
         message: `Error while trying to parse ${UserConfig.getPath()}.`,
-        details: error.message,
+        details: err.message,
       });
     }
   }
