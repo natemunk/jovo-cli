@@ -9,7 +9,7 @@ Learn how you can synchronize your local project files with the developer consol
 
 ## Introduction
 
-The Jovo CLI can be used to communicate with various developer consoles, for example from platforms like Alexa or Google Assistant.
+The Jovo CLI can be used to communicate with various developer consoles, for example the Alexa Developer Console.
 
 `jovo get` allows you to download files from a developer console into your `build` folder to synchronize your local files with the remote console project. You can see it as the opposite of the [`deploy` command](./deploy-command.md).
 
@@ -40,7 +40,6 @@ You can also add flags from the table below.
 CLI integrations may also add their own flags. Learn more in the respective platform docs:
 
 - [Alexa `get`](https://www.jovo.tech/marketplace/platform-alexa/cli-commands#get)
-- [Google Assistant `get`](https://www.jovo.tech/marketplace/platform-googleassistant/cli-commands#get)
 
 ## Troubleshooting
 

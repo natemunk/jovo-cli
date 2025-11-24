@@ -27,7 +27,7 @@ import { LexCliConfig } from '../interfaces';
 import { getLexLocale, SupportedLocales, SupportedLocalesType } from '../utilities';
 
 export class BuildHook extends PluginHook<BuildPlatformEvents> {
-  $context!: BuildPlatformContext;
+  declare $context: BuildPlatformContext;
 
   install(): void {
     this.middlewareCollection = {

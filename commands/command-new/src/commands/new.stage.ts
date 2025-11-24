@@ -52,7 +52,7 @@ export class NewStage extends PluginCommand<NewStageEvents> {
       required: true,
     },
   ];
-  $context!: NewStageContext;
+  declare $context: NewStageContext;
 
   install(): void {
     this.middlewareCollection = {

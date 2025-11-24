@@ -1,7 +1,7 @@
 {
   "name": "@jovotech/cli",
   "description": "Jovo Command Line Interface (Beta) ",
-  "version": "4.1.9",
+  "version": "5.0.0",
   "author": "jovotech",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -26,13 +26,13 @@
   },
   "bugs": "https://github.com/jovotech/jovo-cli/issues",
   "dependencies": {
-    "@jovotech/cli-command-build": "^4.1.9",
-    "@jovotech/cli-command-deploy": "^4.1.9",
-    "@jovotech/cli-command-get": "^4.1.9",
-    "@jovotech/cli-command-new": "^4.1.9",
-    "@jovotech/cli-command-run": "^4.1.10",
-    "@jovotech/cli-command-update": "^4.1.9",
-    "@jovotech/cli-core": "^4.1.10",
+    "@jovotech/cli-command-build": "^5.0.0",
+    "@jovotech/cli-command-deploy": "^5.0.0",
+    "@jovotech/cli-command-get": "^5.0.0",
+    "@jovotech/cli-command-new": "^5.0.0",
+    "@jovotech/cli-command-run": "^5.0.0",
+    "@jovotech/cli-command-update": "^5.0.0",
+    "@jovotech/cli-core": "^5.0.0",
     "@oclif/command": "^1.8.0",
     "@oclif/config": "^1.17.0",
     "@oclif/help": "^1.0.1",
@@ -45,7 +45,7 @@
     "@types/envinfo": "^7.8.1",
     "@types/jest": "^29.5.0",
     "@types/lodash.get": "^4.4.6",
-    "@types/node": "^20.10.0",
+    "@types/node": "^24.0.0",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
     "eslint": "^8.50.0",
@@ -61,7 +61,7 @@
     "typescript": "~5.3.0"
   },
   "engines": {
-    "node": ">=8.0.0"
+    "node": ">=24.0.0"
   },
   "files": [
     "bin",

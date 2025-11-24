@@ -49,7 +49,7 @@ export class DeployCode extends PluginCommand<DeployCodeEvents> {
   // Allow multiple arguments by disabling argument length validation
   static strict = false;
 
-  $context!: DeployCodeContext;
+  declare $context: DeployCodeContext;
 
   static install(
     cli: JovoCli,

@@ -26,7 +26,7 @@ import { join as joinPaths } from 'path';
 import { getLexLocale, LexIntent } from '../utilities';
 
 export class DeployHook extends PluginHook<DeployPlatformEvents> {
-  $context!: DeployPlatformContext;
+  declare $context: DeployPlatformContext;
 
   install(): void {
     this.middlewareCollection = {

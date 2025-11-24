@@ -56,7 +56,7 @@ export class GetPlatform extends PluginCommand<BuildPlatformEvents | GetPlatform
   ];
   // Allow multiple arguments by disabling argument length validation
   static strict = false;
-  $context!: GetPlatformContext;
+  declare $context: GetPlatformContext;
 
   static install(cli: JovoCli, plugin: GetCommand, emitter: EventEmitter<GetPlatformEvents>): void {
     // Override PluginCommand.install() to fill options for --platform.

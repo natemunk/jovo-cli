@@ -74,7 +74,7 @@ export class BuildPlatform extends PluginCommand<BuildPlatformEvents | DeployPla
   // Allow multiple arguments by disabling argument length validation
   static strict = false;
 
-  $context!: BuildPlatformContext;
+  declare $context: BuildPlatformContext;
 
   static install(
     cli: JovoCli,

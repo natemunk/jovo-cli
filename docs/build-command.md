@@ -9,7 +9,7 @@ Learn how you can use the `jovo build` command to create platform specific proje
 
 ## Introduction
 
-The Jovo CLI can be used to deploy projects to various developer consoles like the Alexa and Actions on Google consoles. The `build` command helps with creating platform specific files that can be deployed to the respective platform developer consoles using the [`deploy` command](./deploy-command.md).
+The Jovo CLI can be used to deploy projects to various developer consoles like the Alexa Developer Console. The `build` command helps with creating platform specific files that can be deployed to the respective platform developer consoles using the [`deploy` command](./deploy-command.md).
 
 `jovo build` turns the files from the [`models` folder](https://www.jovo.tech/docs/models) and the [project configuration from `jovo.project.js`](./project-config.md) into platform specific files in the `build` folder. These files can then be used for deployment.
 
@@ -47,7 +47,6 @@ You can also add flags from the table below.
 CLI integrations may also add their own flags. Learn more in the respective docs:
 
 - [Alexa `build`](https://www.jovo.tech/marketplace/platform-alexa/cli-commands#build)
-- [Google Assistant `build`](https://www.jovo.tech/marketplace/platform-googleassistant/cli-commands#build)
 
 ## Reverse Build
 

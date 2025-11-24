@@ -30,7 +30,7 @@ export interface LexGetContext extends GetPlatformContext {
 }
 
 export class GetHook extends PluginHook<GetPlatformEvents> {
-  $context!: LexGetContext;
+  declare $context: LexGetContext;
 
   install(): void {
     this.middlewareCollection = {

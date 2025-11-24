@@ -55,6 +55,16 @@ export async function promptProjectProperties(
     locales: flags.locale,
   });
 
+  // Get available platforms and pre-select Alexa by default
+  const platformPlugins = fetchMarketPlace().filter((plugin) => plugin.tags.includes('platforms'));
+  const platformChoices = platformPlugins.map((plugin) => ({
+    title: printUserInput(plugin.name),
+    value: plugin,
+    description: plugin.description,
+    // Pre-select Amazon Alexa by default for Alexa-focused development
+    selected: plugin.package === '@jovotech/platform-alexa',
+  }));
+
   const props: ProjectProperties = await prompt(
     [
       {
@@ -66,25 +76,20 @@ export async function promptProjectProperties(
           this.rendered = printUserInput(this.rendered);
         },
       },
-      // Prompt for Platforms (multiple)
+      // Prompt for Platforms (multiple) - Alexa pre-selected
       {
         name: 'platforms',
         message: 'Choose the platforms you want to use (select with space):',
         type: 'multiselect',
         instructions: false,
-        choices: fetchMarketPlace()
-          .filter((plugin) => plugin.tags.includes('platforms'))
-          .map((plugin) => ({
-            title: printUserInput(plugin.name),
-            value: plugin,
-            description: plugin.description,
-          })),
+        choices: platformChoices,
+        hint: '- Alexa is pre-selected for you',
       },
       {
         name: 'locales',
         message: 'Type the locales you want to use (comma-separated):',
         type: 'list',
-        initial: 'en',
+        initial: 'en-US',  // Default to en-US for Alexa compatibility
         validate(locales: string) {
           try {
             for (const locale of locales.split(',')) {

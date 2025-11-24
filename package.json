@@ -8,7 +8,9 @@
     "integrations/*"
   ],
   "scripts": {
-    "setup:dev": "npm i && npm run link && npm run build",
+    "setup:dev": "npm i && npm run build && npm run link:local && npm run link",
+    "link:local": "mkdir -p cli/node_modules/@jovotech && cd cli/node_modules/@jovotech && ln -sf ../../../commands/command-build cli-command-build && ln -sf ../../../commands/command-deploy cli-command-deploy && ln -sf ../../../commands/command-get cli-command-get && ln -sf ../../../commands/command-new cli-command-new && ln -sf ../../../commands/command-run cli-command-run && ln -sf ../../../commands/command-update cli-command-update && ln -sf ../../../core cli-core",
+    "rebuild": "./scripts/rebuild.sh",
     "build": "lerna run build",
     "clean": "lerna run clean",
     "prettier": "lerna run prettier",

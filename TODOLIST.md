@@ -16,35 +16,23 @@ This document tracks maintenance tasks for the privately maintained Jovo CLI for
 ## Phase 1: Immediate Tasks (Safety & Cleanup)
 
 ### 1. Remove Deprecated Platform References
-**Priority:** High | **Effort:** 10 minutes | **Risk:** None
+**Priority:** High | **Effort:** 10 minutes | **Risk:** None | **Status:** COMPLETED
 
-Remove references to discontinued platforms from the marketplace.
+Removed references to discontinued platforms (Google Assistant, Facebook Messenger, Google Business) from the marketplace.
 
-**File to modify:** `commands/command-new/src/utilities.ts`
+**Files modified:**
+- `commands/command-new/src/utilities.ts` - Removed platform entries
+- `docs/build-command.md` - Removed Google Assistant reference
+- `docs/get-command.md` - Removed Google Assistant reference
+- `docs/deploy-command.md` - Removed Google Assistant reference
 
-**Current state (lines 89-109):**
-```typescript
-// These platforms no longer exist in jovo-framework
-{
-  module: 'GoogleAssistantPlatform',
-  cliModule: 'GoogleAssistantCli',
-  package: '@jovotech/platform-googleassistant',
-},
-{
-  module: 'FacebookMessengerPlatform',
-  package: '@jovotech/platform-facebookmessenger',
-},
-{
-  module: 'GoogleBusinessPlatform',
-  package: '@jovotech/platform-googlebusiness',
-},
-```
-
-**Target state:** Delete lines 89-109 entirely.
-
-**Also update docs:**
-- `docs/README.md` - Remove Google Assistant references
-- `docs/project-config.md` - Remove Google Assistant references
+**Current marketplace plugins (utilities.ts):**
+- FileDb (database)
+- DynamoDb (database)
+- Jovo Core Platform (platform)
+- Amazon Alexa (platform)
+- ExpressJs (server)
+- AWS Lambda (server)
 
 ---
 

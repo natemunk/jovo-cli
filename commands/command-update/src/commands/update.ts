@@ -41,7 +41,7 @@ export class Update extends PluginCommand<UpdateEvents> {
 
   static examples: string[] = ['jovo update'];
 
-  $context!: UpdateContext;
+  declare $context: UpdateContext;
 
   async run(): Promise<void> {
     Log.spacer();

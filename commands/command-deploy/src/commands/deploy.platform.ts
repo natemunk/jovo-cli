@@ -53,7 +53,7 @@ export class DeployPlatform extends PluginCommand<DeployPlatformEvents> {
   // Allow multiple arguments by disabling argument length validation
   static strict = false;
 
-  $context!: DeployPlatformContext;
+  declare $context: DeployPlatformContext;
 
   static install(
     cli: JovoCli,

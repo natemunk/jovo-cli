@@ -12,7 +12,7 @@ import { getServerlessError, ServerlessConfig } from '../utilities';
 
 export class DeployHook extends PluginHook<DeployCodeEvents> {
   $config!: ServerlessConfig;
-  $context!: DeployCodeContext;
+  declare $context: DeployCodeContext;
 
   install(): void {
     this.middlewareCollection = {

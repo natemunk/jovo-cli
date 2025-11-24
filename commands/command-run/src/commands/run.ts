@@ -38,7 +38,7 @@ export class Run extends PluginCommand<RunEvents> {
     }),
     ...PluginCommand.flags,
   };
-  $context!: RunContext;
+  declare $context: RunContext;
 
   install(): void {
     this.middlewareCollection = {

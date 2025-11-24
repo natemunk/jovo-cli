@@ -27,6 +27,7 @@ import {
   Task,
   WRENCH,
 } from '@jovotech/cli-core';
+import { getAlexaPlugin } from '../utilities';
 import { existsSync, mkdirSync } from 'fs';
 import _merge from 'lodash.merge';
 import _pick from 'lodash.pick';
@@ -53,7 +54,12 @@ export type NewEvents = 'new';
 export class New extends PluginCommand<NewEvents> {
   static id = 'new';
   static description = 'Create a new Jovo project';
-  static examples = ['jovo new helloworld', 'jovo new --preset default'];
+  static examples = [
+    'jovo new helloworld',
+    'jovo new helloworld --alexa',
+    'jovo new helloworld --quick',
+    'jovo new --preset default',
+  ];
   static availablePresets: string[] = [];
   static flags = {
     locale: flags.string({
@@ -73,6 +79,15 @@ export class New extends PluginCommand<NewEvents> {
     clean: flags.boolean({
       description: 'Forces overwriting an existing project',
     }),
+    alexa: flags.boolean({
+      description: 'Create an Alexa-focused project with sensible defaults (en-US locale, Lambda target)',
+      default: false,
+    }),
+    quick: flags.boolean({
+      char: 'q',
+      description: 'Skip all prompts and use Alexa defaults (TypeScript, en-US, Lambda)',
+      default: false,
+    }),
     ...PluginCommand.flags,
   };
   // Defines arguments that can be passed to the command.
@@ -90,7 +105,7 @@ export class New extends PluginCommand<NewEvents> {
       },
     },
   ];
-  $context!: NewContext;
+  declare $context: NewContext;
 
   static install(cli: JovoCli, plugin: NewCommand, emitter: EventEmitter<NewEvents>): void {
     // Override PluginCommand.install() to fill options for --platform.
@@ -108,7 +123,30 @@ export class New extends PluginCommand<NewEvents> {
 
     let preset: Preset | undefined;
 
-    if (!flags['preset']) {
+    // Handle --quick flag: Skip all prompts and use Alexa defaults
+    const useQuickMode = flags.quick || flags.alexa;
+
+    if (useQuickMode) {
+      // Quick mode: Use Alexa defaults without prompts
+      Log.info(`${CRYSTAL_BALL} Creating Alexa project with defaults...`);
+      Log.spacer();
+
+      const alexaPlugin = getAlexaPlugin();
+      if (!alexaPlugin) {
+        throw new JovoCliError({
+          message: 'Could not find Amazon Alexa platform plugin.',
+          module: this.$plugin.constructor.name,
+        });
+      }
+
+      preset = {
+        name: 'alexa-quick',
+        projectName: args.directory || 'helloworld',
+        platforms: [alexaPlugin],
+        locales: flags.locale || ['en-US'],
+        language: (flags.language as 'typescript' | 'javascript') || 'typescript',
+      };
+    } else if (!flags['preset']) {
       Log.info(`${CRYSTAL_BALL} Welcome to the Jovo CLI Wizard`);
       Log.spacer();
 
@@ -155,7 +193,7 @@ export class New extends PluginCommand<NewEvents> {
       language: flags.language || 'typescript',
       linter: false,
       unitTesting: false,
-      locales: flags.locale || ['en'],
+      locales: flags.locale || ['en-US'],  // Default to en-US for Alexa compatibility
       platforms: [],
     });
     // Merge preset's project properties with context object.

@@ -1,7 +1,7 @@
 {
   "name": "@jovotech/cli-command-new",
   "description": "Jovo CLI Plugin for creating a new Jovo project",
-  "version": "4.1.9",
+  "version": "5.0.0",
   "author": "jovotech",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -16,7 +16,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "@jovotech/cli-core": "^4.1.10",
+    "@jovotech/cli-core": "^5.0.0",
     "@oclif/parser": "^3.8.5",
     "adm-zip": "^0.5.2",
     "axios": "^1.6.0",
@@ -39,7 +39,7 @@
     "@types/lodash.mergewith": "^4.6.6",
     "@types/lodash.pick": "^4.4.6",
     "@types/lodash.set": "^4.3.6",
-    "@types/node": "^20.10.0",
+    "@types/node": "^24.0.0",
     "@types/node-emoji": "^1.8.1",
     "@types/prompts": "^2.0.9",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
