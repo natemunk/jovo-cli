@@ -93,10 +93,11 @@ export interface Package {
 
 // ####### CLI COMMAND #######
 
-export type CliFlags<COMMAND extends typeof PluginCommand> = COMMAND extends Parser.Input<infer T>
-  ? // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    Parser.Output<T, any>['flags']
-  : never;
+export type CliFlags<COMMAND extends typeof PluginCommand> =
+  COMMAND extends Parser.Input<infer T>
+    ? // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      Parser.Output<T, any>['flags']
+    : never;
 
 export type CliArgs<COMMAND extends typeof PluginCommand> = Record<
   COMMAND['args'][number]['name'],

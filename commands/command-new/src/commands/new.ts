@@ -80,7 +80,8 @@ export class New extends PluginCommand<NewEvents> {
       description: 'Forces overwriting an existing project',
     }),
     alexa: flags.boolean({
-      description: 'Create an Alexa-focused project with sensible defaults (en-US locale, Lambda target)',
+      description:
+        'Create an Alexa-focused project with sensible defaults (en-US locale, Lambda target)',
       default: false,
     }),
     quick: flags.boolean({
@@ -193,7 +194,7 @@ export class New extends PluginCommand<NewEvents> {
       language: flags.language || 'typescript',
       linter: false,
       unitTesting: false,
-      locales: flags.locale || ['en-US'],  // Default to en-US for Alexa compatibility
+      locales: flags.locale || ['en-US'], // Default to en-US for Alexa compatibility
       platforms: [],
     });
     // Merge preset's project properties with context object.

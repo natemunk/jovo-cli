@@ -136,13 +136,11 @@ export class NewStage extends PluginCommand<NewStageEvents> {
         : joinPaths('dist', `app.${this.$context.args.stage}.js`);
 
       if (this.$cli.project!.isTypeScriptProject()) {
-        packageJson.scripts[
-          `start:${this.$context.args.stage}`
-        ] = `tsc-watch --onSuccess \"node ${appPath} --jovo-webhook\" --noClear`;
+        packageJson.scripts[`start:${this.$context.args.stage}`] =
+          `tsc-watch --onSuccess \"node ${appPath} --jovo-webhook\" --noClear`;
       } else {
-        packageJson.scripts[
-          `start:${this.$context.args.stage}`
-        ] = `nodemon --watch src --exec \"babel src --out-dir dist && node ${appPath} --jovo-webhook\"`;
+        packageJson.scripts[`start:${this.$context.args.stage}`] =
+          `nodemon --watch src --exec \"babel src --out-dir dist && node ${appPath} --jovo-webhook\"`;
       }
 
       packageJson.scripts[`bundle:${this.$context.args.stage}`] = `npm run bundle -- ${appPath}`;

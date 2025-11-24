@@ -89,7 +89,7 @@ export async function promptProjectProperties(
         name: 'locales',
         message: 'Type the locales you want to use (comma-separated):',
         type: 'list',
-        initial: 'en-US',  // Default to en-US for Alexa compatibility
+        initial: 'en-US', // Default to en-US for Alexa compatibility
         validate(locales: string) {
           try {
             for (const locale of locales.split(',')) {

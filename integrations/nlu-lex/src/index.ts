@@ -17,7 +17,7 @@ export class LexCli extends JovoCliPlugin {
   readonly id: string = 'lex';
   readonly type: PluginType = 'platform';
   readonly platformDirectory: string = 'platform.lex';
-  readonly declare config: LexCliConfig;
+  declare readonly config: LexCliConfig;
 
   constructor(config?: LexCliConfig) {
     super(config);
